@@ -163,7 +163,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         super(AbstractCheckboxCommand, self).__init__(*args, **kwargs)
         indent_pattern = r'^(\s*).*$'
         summary_pattern = r'(\[\d*[/]\d*\])'
-        checkbox_pattern = r'(\[[X ]\])'
+        checkbox_pattern = r'(\[[x ]\])'
         self.indent_regex = re.compile(indent_pattern)
         self.summary_regex = re.compile(summary_pattern)
         self.checkbox_regex = re.compile(checkbox_pattern)
@@ -293,7 +293,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         )
 
     def is_checked(self, line):
-        return '[X]' in self.view.substr(line)
+        return '[x]' in self.view.substr(line)
 
     def recalc_summary(self, region):
         # print('recalc_summary')
@@ -354,7 +354,7 @@ class AbstractCheckboxCommand(sublime_plugin.TextCommand):
         if checked is None:
             checked = not self.is_checked(checkbox)
         view.replace(edit, checkbox, '[%s]' % (
-            'X' if checked else ' '))
+            'x' if checked else ' '))
         if recurse_down:
             # all children should follow
             children = self.find_children(region)

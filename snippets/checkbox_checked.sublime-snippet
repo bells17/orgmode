@@ -1,5 +1,5 @@
 <snippet>
-    <content><![CDATA[[X] ]]></content>
+    <content><![CDATA[[x] ]]></content>
     <tabTrigger>cc</tabTrigger>
     <scope>text.orgmode</scope>
     <description>checkbox checked</description>
